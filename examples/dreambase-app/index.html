@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oasis Dreambase App</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0B0B0D;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+      #app {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .content.visible {
+        opacity: 1;
+      }
+      .content h1 {
+        color: #FFB347;
+        font-size: 48px;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div class="content" id="content">
+      <h1>Welcome to Dreambase App</h1>
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
