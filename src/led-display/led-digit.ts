@@ -1,10 +1,10 @@
-import { SEGMENT_MAP } from './types'
+import { getDotMatrix } from './types'
 import { LedConfig } from './types'
 
 export class LedDigit {
   private element: HTMLElement
   private config: LedConfig
-  private segments: HTMLElement[] = []
+  private dots: HTMLElement[][] = []
 
   constructor(config: LedConfig) {
     this.config = config
@@ -15,90 +15,51 @@ export class LedDigit {
     const digit = document.createElement('div')
     digit.className = 'led-digit'
     digit.setAttribute('role', 'img')
+    digit.style.display = 'flex'
+    digit.style.flexDirection = 'column'
+    digit.style.gap = this.config.dotGap + 'px'
 
-    const segmentNames = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+    for (let row = 0; row < 7; row++) {
+      const rowEl = document.createElement('div')
+      rowEl.className = 'led-row'
+      rowEl.style.display = 'flex'
+      rowEl.style.gap = this.config.dotGap + 'px'
 
-    segmentNames.forEach((name) => {
-      const segment = document.createElement('div')
-      segment.className = `led-segment segment-${name}`
-      segment.style.backgroundColor = this.config.colorInactive
-      this.segments.push(segment)
-      digit.appendChild(segment)
-    })
-
-    this.applyStyles(digit)
+      const rowDots: HTMLElement[] = []
+      for (let col = 0; col < 5; col++) {
+        const dot = document.createElement('div')
+        dot.className = 'led-dot'
+        dot.style.width = this.config.dotSize + 'px'
+        dot.style.height = this.config.dotSize + 'px'
+        dot.style.borderRadius = '2px'
+        dot.style.backgroundColor = this.config.colorInactive
+        dot.style.transition = 'background-color 0.1s ease, box-shadow 0.1s ease'
+        rowDots.push(dot)
+        rowEl.appendChild(dot)
+      }
+      this.dots.push(rowDots)
+      digit.appendChild(rowEl)
+    }
 
     return digit
   }
 
-  private applyStyles(digit: HTMLElement): void {
-    const style = document.createElement('style')
-    style.textContent = `
-      .led-digit {
-        position: relative;
-        width: 32px;
-        height: 56px;
-        display: inline-block;
-      }
-      .led-segment {
-        position: absolute;
-        border-radius: 2px;
-        transition: background-color 0.1s ease;
-      }
-      .segment-a {
-        top: 0;
-        left: 4px;
-        width: 24px;
-        height: 6px;
-      }
-      .segment-b {
-        top: 6px;
-        right: 0;
-        width: 6px;
-        height: 20px;
-      }
-      .segment-c {
-        top: 30px;
-        right: 0;
-        width: 6px;
-        height: 20px;
-      }
-      .segment-d {
-        bottom: 0;
-        left: 4px;
-        width: 24px;
-        height: 6px;
-      }
-      .segment-e {
-        top: 30px;
-        left: 0;
-        width: 6px;
-        height: 20px;
-      }
-      .segment-f {
-        top: 6px;
-        left: 0;
-        width: 6px;
-        height: 20px;
-      }
-      .segment-g {
-        top: 25px;
-        left: 4px;
-        width: 24px;
-        height: 6px;
-      }
-    `
-    digit.appendChild(style)
-  }
-
   setChar(char: string): void {
-    const segments = SEGMENT_MAP[char] || SEGMENT_MAP[' ']
+    const matrix = getDotMatrix(char)
 
-    segments.forEach((active, index) => {
-      this.segments[index].style.backgroundColor = active
-        ? this.config.colorActive
-        : this.config.colorInactive
-    })
+    for (let row = 0; row < 7; row++) {
+      for (let col = 0; col < 5; col++) {
+        const active = matrix[row][col]
+        const dot = this.dots[row][col]
+        if (active) {
+          dot.style.backgroundColor = this.config.colorActive
+          dot.style.boxShadow = '0 0 8px ' + this.config.colorActive
+        } else {
+          dot.style.backgroundColor = this.config.colorInactive
+          dot.style.boxShadow = 'none'
+        }
+      }
+    }
 
     this.element.setAttribute('aria-label', char === ' ' ? 'space' : char)
   }

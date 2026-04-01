@@ -2,10 +2,11 @@ import { LedConfig } from '../led-display/types'
 
 export const defaultLedConfig: LedConfig = {
   colorActive: '#00FF00',
-  colorInactive: '#333333',
+  colorInactive: '#222222',
   colorBackground: '#0B0B0D',
-  segmentGap: 2,
-  digitGap: 8,
+  dotSize: 6,
+  dotGap: 2,
+  digitGap: 12,
   animation: false
 }
 
