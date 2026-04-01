@@ -10,21 +10,74 @@
         margin: 0;
         padding: 0;
         background-color: #0B0B0D;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+      }
+      header h1 {
+        margin: 0 0 10px 0;
+        color: #FF6A00;
+      }
+      nav {
+        margin-top: 20px;
+      }
+      nav a {
+        color: #FF6A00;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1rem;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      main {
+        flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        overflow: hidden;
+        padding: 20px;
       }
       #app {
         width: 100%;
         height: 100%;
         position: relative;
       }
+      footer {
+        padding: 40px 20px;
+        text-align: center;
+        color: #666;
+        border-top: 1px solid #222;
+      }
+      .label {
+        color: #888;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <h1>Oasis Web Template</h1>
+      <nav>
+        <a href="/examples/basic-app/">Basic App</a>
+        <a href="/examples/dreambase-app/">Dreambase</a>
+        <a href="/examples/led-display-app/">LED Display</a>
+      </nav>
+    </header>
+    <main>
+      <div id="app"></div>
+    </main>
+    <footer>
+      <div class="label">World Domination Index</div>
+      <div id="footer-led-container"></div>
+    </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

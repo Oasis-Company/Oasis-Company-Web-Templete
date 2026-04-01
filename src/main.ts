@@ -1,10 +1,10 @@
 import { playOasisBoot } from './core/boot'
+import { initLedDisplay } from './led-display'
 
-// 示例使用
-const container = document.getElementById('app')
-if (container) {
+const bootContainer = document.getElementById('app')
+if (bootContainer) {
   playOasisBoot({
-    container,
+    container: bootContainer,
     logoShape: 'circle',
     config: {
       particleBehavior: {
@@ -13,6 +13,19 @@ if (container) {
       attractionStrength: 1.0,
       ignitionStyle: 'flicker',
       colorVariant: 'orange_default'
+    }
+  })
+}
+
+const footerContainer = document.getElementById('footer-led-container')
+if (footerContainer) {
+  initLedDisplay({
+    container: footerContainer,
+    value: 20211102,
+    digitCount: 11,
+    config: {
+      colorActive: '#00FF00',
+      colorInactive: '#333333'
     }
   })
 }
