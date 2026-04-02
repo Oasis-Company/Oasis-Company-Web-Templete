@@ -18,7 +18,7 @@ export class LedDigit {
     digit.style.display = 'flex'
     digit.style.flexDirection = 'column'
     digit.style.gap = this.config.dotGap + 'px'
-    digit.style.padding = '4px'
+    digit.style.padding = '0'
 
     for (let row = 0; row < 7; row++) {
       const rowEl = document.createElement('div')
@@ -32,9 +32,9 @@ export class LedDigit {
         dot.className = 'led-dot'
         dot.style.width = this.config.dotSize + 'px'
         dot.style.height = this.config.dotSize + 'px'
-        dot.style.borderRadius = '4px'
+        dot.style.borderRadius = '2px'
         dot.style.backgroundColor = this.config.colorInactive
-        dot.style.transition = 'background-color 0.15s ease, box-shadow 0.15s ease'
+        dot.style.transition = 'background-color 0.1s ease, box-shadow 0.1s ease'
         rowDots.push(dot)
         rowEl.appendChild(dot)
       }
@@ -54,10 +54,10 @@ export class LedDigit {
         const dot = this.dots[row][col]
         if (active) {
           dot.style.backgroundColor = this.config.colorActive
-          dot.style.boxShadow = '0 0 12px ' + this.config.colorActive + ', 0 0 24px ' + this.config.colorActive + '66, inset 0 0 6px ' + this.config.colorActive + '44'
+          dot.style.boxShadow = '0 0 10px ' + this.config.colorActive + ', 0 0 20px ' + this.config.colorActive + '88, inset 0 0 5px rgba(255,255,255,0.6)'
         } else {
           dot.style.backgroundColor = this.config.colorInactive
-          dot.style.boxShadow = 'inset 0 1px 2px rgba(0,0,0,0.5)'
+          dot.style.boxShadow = 'none'
         }
       }
     }
