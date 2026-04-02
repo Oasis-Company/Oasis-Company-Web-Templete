@@ -1,13 +1,13 @@
 import { LedConfig } from '../led-display/types'
 
 export const defaultLedConfig: LedConfig = {
-  colorActive: '#00FF00',
-  colorInactive: '#222222',
-  colorBackground: '#0B0B0D',
-  dotSize: 6,
-  dotGap: 2,
-  digitGap: 12,
-  animation: false
+  colorActive: '#00E5FF',
+  colorInactive: '#0f1a2a',
+  colorBackground: '#0a1929',
+  dotSize: 12,
+  dotGap: 4,
+  digitGap: 20,
+  animation: true
 }
 
 export type LedConfigType = typeof defaultLedConfig

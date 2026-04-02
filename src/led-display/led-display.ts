@@ -35,9 +35,13 @@ export class LedDisplay {
         display: inline-flex;
         align-items: center;
         gap: ${this.config.digitGap}px;
-        padding: 16px 24px;
+        padding: 20px 30px;
         background-color: ${this.config.colorBackground};
-        border-radius: 4px;
+        border-radius: 12px;
+        border: 2px solid #1a1a1a;
+        box-shadow: 
+          inset 0 2px 10px rgba(0, 0, 0, 0.8),
+          0 4px 20px rgba(0, 0, 0, 0.5);
       }
     `
     wrapper.appendChild(style)
