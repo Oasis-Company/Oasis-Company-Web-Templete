@@ -1,10 +1,21 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
   build: {
+    lib: {
+      entry: resolve(__dirname, 'src/main.ts'),
+      name: 'OasisTemplate',
+      fileName: 'oasis-template',
+      formats: ['es', 'umd']
+    },
     outDir: 'dist',
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      external: [],
+      output: {
+        globals: {}
+      }
+    }
   }
 })
