@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oasis Footer Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0B0B0D;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Inter', 'Microsoft YaHei', 'Source Han Sans CN', 'SimHei', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      }
+      header {
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+      }
+      header h1 {
+        margin: 0 0 10px 0;
+        color: #FF6A00;
+        font-weight: 700;
+        font-size: 2.5rem;
+        letter-spacing: -0.5px;
+      }
+      main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Oasis Footer Test</h1>
+    </header>
+    <main>
+      <p>Scroll down to see the footer</p>
+    </main>
+    <div id="footer-container"></div>
+    <script type="module">
+      import React from 'react';
+      import ReactDOM from 'react-dom/client';
+      import { OasisFooter } from './src/main.ts';
+      
+      ReactDOM.createRoot(document.getElementById('footer-container')).render(
+        React.createElement(OasisFooter)
+      );
+    </script>
+  </body>
+</html>
