@@ -3,7 +3,7 @@ import { AnimationTimeline } from './timeline'
 import { defaultConfig } from '../config/default'
 import { PerformanceDetector } from '../utils/performance'
 
-interface OasisBootConfig {
+export interface OasisBootConfig {
   container: HTMLElement
   logoShape: 'circle' | 'square' | 'custom_svg'
   config?: Partial<typeof defaultConfig>

@@ -1,0 +1,36 @@
+# Source files
+src/
+examples/
+configs/
+specs/
+primitives/
+homeprepare/
+
+# Config files
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+.gitignore
+.gitattributes
+
+# Development files
+*.md
+!README.md
+LICENSE
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test
+coverage/
+.nyc_output/
+
+# Build output (will be included via "files" field in package.json)
+dist/

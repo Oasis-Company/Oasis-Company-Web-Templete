@@ -13,6 +13,7 @@ export class ParticleSystem {
   private centerX: number = 0
   private centerY: number = 0
   private startTime: number | null = null
+  private resizeHandler: () => void
 
   constructor(container: HTMLElement, config: Config) {
     this.container = container
@@ -37,8 +38,9 @@ export class ParticleSystem {
     // 设置canvas尺寸
     this.resize()
 
-    // 监听窗口大小变化
-    window.addEventListener('resize', () => this.resize())
+    // 保存事件监听器引用
+    this.resizeHandler = () => this.resize()
+    window.addEventListener('resize', this.resizeHandler)
   }
 
   private resize() {
@@ -378,6 +380,6 @@ export class ParticleSystem {
     if (this.canvas && this.canvas.parentNode) {
       this.canvas.parentNode.removeChild(this.canvas)
     }
-    window.removeEventListener('resize', () => this.resize())
+    window.removeEventListener('resize', this.resizeHandler)
   }
 }

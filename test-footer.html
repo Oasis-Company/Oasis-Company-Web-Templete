@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oasis Web Template</title>
+    <title>Oasis Footer Test</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -30,64 +30,32 @@
         font-size: 2.5rem;
         letter-spacing: -0.5px;
       }
-      nav {
-        margin-top: 20px;
-      }
-      nav a {
-        color: #FF6A00;
-        text-decoration: none;
-        margin: 0 15px;
-        font-size: 1.1rem;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-      }
-      nav a:hover {
-        text-decoration: underline;
-      }
       main {
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px;
-      }
-      #app {
-        width: 100%;
-        height: 100%;
-        position: relative;
-      }
-      footer {
-        padding: 40px 20px;
-        text-align: center;
         color: #666;
-        border-top: 1px solid #222;
-      }
-      .label {
-        color: #888;
-        margin-bottom: 8px;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 600;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Oasis Web Template</h1>
-      <nav>
-        <a href="/examples/basic-app/">Basic App</a>
-        <a href="/examples/dreambase-app/">Dreambase</a>
-        <a href="/examples/led-display-app/">LED Display</a>
-      </nav>
+      <h1>Oasis Footer Test</h1>
     </header>
     <main>
-      <div id="app"></div>
+      <p>Scroll down to see the footer</p>
     </main>
-    <footer>
-      <div class="label">World Domination Index</div>
-      <div id="footer-led-container"></div>
-    </footer>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="footer-container"></div>
+    <script type="module">
+      import React from 'react';
+      import ReactDOM from 'react-dom/client';
+      import { OasisFooter } from './src/main.ts';
+      
+      ReactDOM.createRoot(document.getElementById('footer-container')).render(
+        React.createElement(OasisFooter)
+      );
+    </script>
   </body>
 </html>

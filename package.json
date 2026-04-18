@@ -1,25 +1,40 @@
 {
-  "name": "oasis-company-web-templete",
+  "name": "oasis-company-web-template",
   "version": "1.0.0",
   "description": "Oasis Web Template is a unified motion and initialization system for all Oasis applications.",
-  "main": "index.js",
-  "directories": {
-    "example": "examples"
+  "type": "module",
+  "main": "./dist/oasis-template.umd.cjs",
+  "module": "./dist/oasis-template.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/oasis-template.js",
+      "require": "./dist/oasis-template.umd.cjs",
+      "types": "./dist/main.d.ts"
+    }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Oasis-Company/Oasis-Company-Web-Templete.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "oasis",
+    "animation",
+    "particles",
+    "led-display",
+    "web-template",
+    "boot-sequence"
+  ],
+  "author": "Oasis Company",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Oasis-Company/Oasis-Company-Web-Templete/issues"
   },
@@ -31,5 +46,11 @@
     "prettier": "^3.8.1",
     "typescript": "^6.0.2",
     "vite": "^8.0.3"
+  },
+  "dependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   }
 }

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oasis Footer Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0B0B0D;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Inter', 'Microsoft YaHei', 'Source Han Sans CN', 'SimHei', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      }
+      header {
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+      }
+      header h1 {
+        margin: 0 0 10px 0;
+        color: #FF6A00;
+        font-weight: 700;
+        font-size: 2.5rem;
+        letter-spacing: -0.5px;
+      }
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: #666;
+      }
+      .test-section {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid #222;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 1200px;
+      }
+      .test-section h2 {
+        color: #FF6A00;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Oasis Footer Test</h1>
+      <p>Testing different footer configurations</p>
+    </header>
+    <main>
+      <div class="test-section">
+        <h2>Main Footer</h2>
+        <div id="main-footer-container"></div>
+      </div>
+      
+      <div class="test-section">
+        <h2>OasisBio Footer</h2>
+        <div id="oasisbio-footer-container"></div>
+      </div>
+      
+      <div class="test-section">
+        <h2>AMAR Engine Footer</h2>
+        <div id="amar-footer-container"></div>
+      </div>
+      
+      <div class="test-section">
+        <h2>Compact Footer</h2>
+        <div id="compact-footer-container"></div>
+      </div>
+    </main>
+    <script type="module">
+      import React from 'react';
+      import ReactDOM from 'react-dom/client';
+      import { OasisFooter, mainFooterConfig, oasisbioFooterConfig, amarFooterConfig } from './src/main.ts';
+      
+      // Test Main Footer
+      ReactDOM.createRoot(document.getElementById('main-footer-container')).render(
+        React.createElement(OasisFooter, {
+          config: mainFooterConfig
+        })
+      );
+      
+      // Test OasisBio Footer
+      ReactDOM.createRoot(document.getElementById('oasisbio-footer-container')).render(
+        React.createElement(OasisFooter, {
+          config: oasisbioFooterConfig
+        })
+      );
+      
+      // Test AMAR Engine Footer
+      ReactDOM.createRoot(document.getElementById('amar-footer-container')).render(
+        React.createElement(OasisFooter, {
+          config: amarFooterConfig
+        })
+      );
+      
+      // Test Compact Footer
+      ReactDOM.createRoot(document.getElementById('compact-footer-container')).render(
+        React.createElement(OasisFooter, {
+          config: mainFooterConfig,
+          compact: true
+        })
+      );
+    </script>
+  </body>
+</html>
